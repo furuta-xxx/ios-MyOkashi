@@ -19,6 +19,20 @@ struct ContentView: View {
                 }
                 .submitLabel(.search)
                 .padding()
+            
+            List(okashiDataList.okashiList) { okashi in
+                HStack {
+                    AsyncImage(url: okashi.image) { image in
+                        image
+                            .resizable()
+                            .scaledToFit()
+                            .frame(height: 40)
+                    } placeholder: {
+                        ProgressView()
+                    }
+                    Text(okashi.name)
+                }
+            }
         }
     }
 }
